@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.renjunyou.ssmdemo.beans"> 
+    <resultMap type="UserBean" id="userResultMap"> 
+        <id property="id" column="id"/> 
+        <result property="username" column="username"/> 
+        <result property="age" column="age"/> 
+    </resultMap> 
+          
+    <select id="selectAll"  resultType="UserBean" resultMap="userResultMap"> 
+        <![CDATA[
+            SELECT * from test_user
+        ]]>  
+    </select>
+    
+    <select id="selectByPage" parameterType="map" resultType="UserBean" resultMap="userResultMap"> 
+        <![CDATA[
+            SELECT * from test_user limit #{offset},#{rows}
+        ]]>  
+    </select> 
+    
+    <select id="selectCount" resultType="int"> 
+        <![CDATA[
+            SELECT count(*) from test_user
+        ]]>  
+    </select> 
+    
+    <select id="selectById"  resultType="UserBean" parameterType="int"> 
+        <![CDATA[
+            SELECT * from test_user where id = #{id}
+        ]]>  
+    </select>
+    
+    <delete id="deleteById" parameterType="int">
+    	<![CDATA[
+            delete from test_user where id = #{id}
+        ]]>  
+    </delete> 
+    
+    <update id="updateUser" parameterType="UserBean">
+    	<![CDATA[
+            update test_user set username = #{username},age = #{age} where id = #{id}
+        ]]> 
+    </update>
+    
+    
+    <insert id="insertUser" parameterType="UserBean">
+    	<![CDATA[
+            insert into test_user values(default,#{username},#{age})
+        ]]>
+    </insert>
+    
+    
+</mapper>
