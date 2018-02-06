@@ -1,0 +1,35 @@
+
+#condition {
+    width: 90%;
+    height: 60px;
+    margin: 0 auto;
+}
+
+#content {
+    width: 90%;
+    height: 380px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/*拼凑的表格样式*/
+span {
+    font-family: '微软雅黑';
+    /* color: white; */
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+#trHead {
+    font-weight: bolder;
+}
+
+.succ {
+    font-weight: bolder;
+    color: #00B050;
+}
+
+.err {
+    font-weight: bolder;
+    color: red;
+}

@@ -1,0 +1,125 @@
+/*基本信息*/
+
+body {
+    font: 12px Tahoma;
+    margin: 0px;
+    text-align: center;
+    background: #FFF;
+}
+
+
+/*页面层容器*/
+
+#container {
+    width: 100%;
+}
+
+
+/*页面头部*/
+
+#Header {
+    width: 100%;
+    height: 80px;
+    background: #FFCC99;
+}
+
+
+/*页面主体*/
+
+#PageBody {
+    width: 100%;
+    height: 552px;
+
+}
+
+
+/*页面底部*/
+
+#Footer {
+    width: 100%;
+    height: 30px;
+    background: #D3D3D3;
+}
+
+#Sidebar {
+    width: 150px;
+    height: 552px;
+    background-color: #D3D3D3;
+    float: left;
+}
+
+#MainBody {
+	width:650px;
+	height: 552px;
+	float: left;
+}
+
+#footspan {
+	/*background: #EE33CC;
+	margin-bottom: 10px;*/
+}
+
+
+/*导航条的样式*/
+.nav {
+    width: 150px;
+    /* 控制导航总宽度 */
+}
+
+
+/* 取消列表样式，内外补间为零 */
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 竖排：控制导航高度*/
+
+.nav li {
+    height: 35px;
+    line-height: 35px;
+    /* 文字垂直居中 指定行高为li高度 自动垂直居中 */
+}
+
+
+/* 鼠标放上效果 */
+
+.nav a:hover {
+    background-color: #007ACC;
+    color: #FFFFFF;
+    cursor: hand;
+}
+
+
+/* 将a标签区块化就可以指定高度 */
+
+.nav a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    /* 取消a标签下划线 */
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+    /* 文字水平居中显示 */
+}
+
+.nav a span {
+    text-align: left;
+    /* 文字水平居中显示 */
+    margin-left: 20px;
+    font-size: 14px;
+    font-family: '微软雅黑';
+}
+
+
+/*-点击后选中-*/
+
+li.current a {
+    background-color: #007ACC;
+    color: #FFFFFF;
+    cursor: hand;
+}

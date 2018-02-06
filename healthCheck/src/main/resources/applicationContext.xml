@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 	classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+    default-lazy-init="false">
+
+    <!-- 注解方式 -->
+     
+    <context:annotation-config />
+    <context:component-scan base-package="com.kdzr.http" />
+    <!-- 
+    <task:annotation-driven/>
+    -->
+    
+    <!-- XML方式 -->
+    <!-- <bean name="testTask" class="com.test.task.TestTask" lazy-init="false"></bean>
+    <task:scheduled-tasks>   
+        <task:scheduled ref="testTask" method="print" cron="0/5 * * * * ?"/>   
+    </task:scheduled-tasks> -->
+    
+    <!-- 网站扫描监控 -->
+    <bean name="website" class="com.kdzr.http.task.TaskWebsite" lazy-init="false"></bean>
+    <task:scheduled-tasks>
+        <!-- 拨测数据保存 -->
+        <task:scheduled ref="website" method="websiteHealthCheck" cron="0 20 8 * * ?"/>
+        <!-- 发邮件 -->   
+        <task:scheduled ref="website" method="websiteSendMail" cron="0 30 8 * * ?"/>   
+    </task:scheduled-tasks>
+    
+    <!-- 高校点点通功能链接扫描监控 -->
+    <bean name="linksite" class="com.kdzr.http.task.TaskLinksite" lazy-init="false"></bean>
+    <task:scheduled-tasks>
+        <!-- 拨测数据保存 -->
+        <task:scheduled ref="linksite" method="linksiteHealthCheck" cron="0 36,42,47 16 * * MON-FRI"/>
+        <!-- 发邮件 -->   
+        <task:scheduled ref="linksite" method="linksiteSendMail" cron="0 39,45,50 16 * * MON-FRI"/>   
+    </task:scheduled-tasks>
+    
+    
+
+</beans>
