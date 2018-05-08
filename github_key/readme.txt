@@ -1,1 +1,1 @@
-Win7是在这个目录下面 C:\Users\Administrator\.ssh
+Win7下是放在这个目录下面 C:\Users\Administrator\.ssh
